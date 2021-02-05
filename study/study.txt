@@ -1,0 +1,11 @@
+이 폴더는 게임을 만들기 위한 함수나 API들을 공부하고 정리하는 폴더 입니다.
+
+참조한 블로그들
+
+https://app-developer.tistory.com/57  //게임 만들기에 유용한 정보들 담김
+
+//핸들개념 설명해주신 김성엽님 블로그
+http://blog.naver.com/PostView.nhn?blogId=tipsware&logNo=221464968465&parentCategoryNo=&categoryNo=50&viewDate=&isShowPopularPosts=true&from=search
+
+//간단한 게임 만드는 강의
+https://lunarcat-repo.tistory.com/category/%EA%B0%95%EC%9D%98/C%EC%96%B8%EC%96%B4%20%EA%B2%8C%EC%9E%84%20%EB%A7%8C%EB%93%A4%EA%B8%B0
