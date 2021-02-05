@@ -71,10 +71,48 @@ void draw() {
 }
 int main()
 {
+	int x = 0, y = 0;
+	int ch;
+	//printf("if you want to end press \"p\"");
 
+	while (1)
+	{
+		
+		gotoxy(x, y);
+		printf("*");
+		hidecursor();
+		if (_kbhit())
+		{
+			ch = _getch();
+			switch (ch)
+			{
+			case 72:  //up
+				y--;
+				break;
+			case 75:	//left
+				x--;
+				break;
+			case 77:	//right
+				x++;
+				break;
+			case 80:	//down
+				y++;
+				break;
+			case 'p':
+				printf("end~~~");
+				return 0;
+			}
+			Sleep(10); //Sleep(1000) 1초를 이야기함 100은 0.1초임 10은 0.01
+			system("cls"); // 스크린을 깨끗이 비워라!!! 
+			//system() cmd 창에 명령어를 직접 쓰는 효과와 동일
+
+		}
+
+	}
+	/*
 	gotoxy(5, 6);
 	draw();//하얀색으로 칠해줄 것임
 	printf("***");
-
-	hidecursor();
+	*/
+	
 }
