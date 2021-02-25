@@ -1,5 +1,7 @@
+#include "Map.h"
 #include <stdio.h>
 #include <Windows.h>
+#include<string.h>
 #include <conio.h>
 /*
 	conio.h =>console and port I/O 약자 윈도우즈에서만 쓸 수 있는 비표준함수들
@@ -15,19 +17,7 @@
 
 
 
-void gotoxy(int x, int y)	//C,C++에서 콘솔화면에 커서를 원하는 위치로 이동하여 해당위치에 문자 출력하는 방법
-{
-	COORD pos = { x,y };
-	/* 콘솔 화면 버퍼에 셀의 좌표를 정의해주는 구조체 (0,0)은 버퍼 왼쪽 상단의 셀
-	typedef struct _COORD{
-		SHORT X; // 수평 좌표나 열의 값 단위는 함수 호출에 따라 달라짐
-		SHORT Y; // 수직 좌표나 행의 값 단위는 함수 호출에 따라 달라짐
-	
-	}COORD, *PCOORD;
-	*/
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);//원하는 위치로 이동시켜주는 함수
-	//STD_OUTPUT_HANDLE 표준 출력 디바이스 활성 콘솔 화면 버퍼
-}
+
 
 // 깜빡거리는 커서를 보이지 않게 하는 함수
 void hidecursor() {
@@ -71,15 +61,21 @@ void draw() {
 }
 int main()
 {
-	int x = 0, y = 0;
+	int x = 1, y = 1;
 	int ch;
 	//printf("if you want to end press \"p\"");
+	int arr[MAP_SIZE][MAP_SIZE];
+
+	map_clear(arr);
+	draw_map(arr);
+	
 
 	while (1)
 	{
+		drawMainMap(arr);
 		
 		gotoxy(x, y);
-		printf("*");
+		printf("***");
 		hidecursor();
 		if (_kbhit())
 		{
@@ -87,23 +83,33 @@ int main()
 			switch (ch)
 			{
 			case 72:  //up
+				gotoxy(x, y);
+				printf("   ");
 				y--;
 				break;
 			case 75:	//left
+				gotoxy(x, y);
+				printf("   ");
 				x--;
 				break;
 			case 77:	//right
+				gotoxy(x, y);
+				printf("   ");
 				x++;
 				break;
 			case 80:	//down
+				gotoxy(x, y);
+				printf("   ");
 				y++;
 				break;
 			case 'p':
 				printf("end~~~");
 				return 0;
 			}
+			//getchar();
+
 			Sleep(10); //Sleep(1000) 1초를 이야기함 100은 0.1초임 10은 0.01
-			system("cls"); // 스크린을 깨끗이 비워라!!! 
+			//system("cls"); // 스크린을 깨끗이 비워라!!! 
 			//system() cmd 창에 명령어를 직접 쓰는 효과와 동일
 
 		}
